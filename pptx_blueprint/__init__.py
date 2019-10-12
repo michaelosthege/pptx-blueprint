@@ -73,6 +73,6 @@ class Template:
         if pathlib.Path(filename).absolute() == pathlib.Path(self._template_path).absolute():
             raise TemplateOverwriteError(
                 f'The specified save path ({filename}) is equal to the path of the template file.'
-                ' The template can not be overwritten.'
+                ' The template cannot be overwritten.'
             )
         self._presentation.save(filename)
