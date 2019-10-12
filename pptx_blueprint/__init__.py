@@ -5,8 +5,8 @@ from typing import Union
 __Pathlike = Union[str, pathlib.Path]
 
 
-class TemplateOvewriteError(Exception):
-    """An error that occurs when the user tries to override the template."""
+class TemplateOverwriteError(Exception):
+    """An error that occurs when the user tries to overwrite the template."""
     pass
 
 
@@ -59,11 +59,11 @@ class Template:
             filename (path-like): file name or path
 
         Raises:
-            TemplateOvewriteError
+            TemplateOverwriteError
         """
         if pathlib.Path(filename).absolute() == pathlib.Path(self._template_path).absolute():
-            raise TemplateOvewriteError(
-                f'The specified save path ({filename}) is equal to the path of the template file.' \
-                'The template should not be overwritten.'
+            raise TemplateOverwriteError(
+                f'The specified save path ({filename}) is equal to the path of the template file.'
+                ' The template can not be overwritten.'
             )
         self._presentation.save(filename)
